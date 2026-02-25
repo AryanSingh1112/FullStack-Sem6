@@ -1,0 +1,116 @@
+.image-text-container {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  padding: 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  max-width: 900px;
+  margin: 40px auto;
+  animation: fadeIn 0.6s ease-in;
+}
+
+.image-wrapper {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.image-wrapper.loaded {
+  opacity: 1;
+}
+
+.lazy-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.5s ease-out;
+}
+
+.lazy-image:hover {
+  transform: scale(1.05);
+}
+
+.text-content {
+  flex: 1;
+  color: white;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 0.8s ease-out;
+}
+
+.text-content.loaded {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.text-content h2 {
+  font-size: 2.5em;
+  margin: 0 0 20px 0;
+  font-weight: 700;
+  letter-spacing: -1px;
+  background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-content p {
+  font-size: 1.1em;
+  line-height: 1.8;
+  margin: 15px 0;
+  font-weight: 300;
+  opacity: 0.95;
+}
+
+.explore-btn {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  border: none;
+  padding: 12px 35px;
+  font-size: 1.1em;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+}
+
+.explore-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(245, 87, 108, 0.6);
+}
+
+.explore-btn:active {
+  transform: translateY(-1px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .image-text-container {
+    flex-direction: column;
+    padding: 25px;
+  }
+
+  .text-content h2 {
+    font-size: 1.8em;
+  }
+
+  .text-content p {
+    font-size: 1em;
+  }
+}
